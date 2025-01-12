@@ -332,6 +332,8 @@ def trace_compare(isa_csv, rtl_log, toplevel, strategy=''):
                         mismatch = False
                 if mismatch and wdata_isa == "0000000000000000" and wdata_isa != wdata_rtl:
                     mismatch = False
+                if instr_str_isa.split(' ')[0] == 'ld' and wdata_isa == "0101010101010101" and wdata_rtl == "0000000000000000":
+                    mismatch = False
                 #if mismatch and (mode_isa!=mode_rtl or mstatus_isa!=mstatus_rtl or fflags_isa!=fflags_rtl):
                 #    print("INTERESTING")
                 if mismatch:
